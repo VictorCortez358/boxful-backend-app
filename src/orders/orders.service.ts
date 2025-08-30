@@ -30,9 +30,22 @@ export class OrdersService {
         return newOrder;
     }
 
-    async findAllByUserId(userId: string) {
+    async findAllByUserId(userId: string, filters: any) {
+        const where: any = { userId };
+
+        if (filters.startDate && filters.endDate) {
+            where.scheduledDate = {
+                gte: new Date(filters.startDate),
+                lte: new Date(filters.endDate),
+            };
+        }
+
+        if (filters.status) {
+            where.status = filters.status;
+        }
+
         return this.prisma.order.findMany({
-            where: { userId },
+            where,
             include: {
                 products: true,
             },
@@ -53,6 +66,4 @@ export class OrdersService {
 
         return order;
     }
-
-
 }
