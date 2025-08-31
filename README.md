@@ -58,6 +58,13 @@ Usa el siguiente comando para iniciar la aplicación en modo desarrollo:
 ```bash
 $ npm run start:dev
 ```
+### Ejecutar el Seeder 
+
+Para poblar la base de datos con datos iniciales, puedes ejecutar el siguiente comando:
+
+```bash
+$ npm run seed
+```
 
 -----
 
