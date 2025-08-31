@@ -30,6 +30,9 @@ export class AuthService {
                 password: hashedPassword,
                 firstName: registerDto.firstName,
                 lastName: registerDto.lastName,
+                gender: registerDto.gender,
+                birthDate: registerDto.birthDate,
+                phone: registerDto.phone,
             },
         });
 
@@ -55,7 +58,6 @@ export class AuthService {
         const payload = { sub: user.id, email: user.email };
         const token = await this.jwtService.signAsync(payload);
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { password, ...result } = user;
         return {
             user: result,

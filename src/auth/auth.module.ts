@@ -1,4 +1,3 @@
-// src/auth/auth.module.ts
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
@@ -17,6 +16,6 @@ import { JwtStrategy } from './jwt.strategy'; // Importa la estrategia
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy], // Añade la estrategia a los providers
+  providers: [AuthService, JwtStrategy], 
 })
 export class AuthModule {}

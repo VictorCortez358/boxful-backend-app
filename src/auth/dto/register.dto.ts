@@ -1,5 +1,10 @@
-// src/auth/dto/register.dto.ts
-import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
+import {
+    IsEmail,
+    IsNotEmpty,
+    IsString,
+    MinLength,
+    IsDateString
+} from 'class-validator';
 
 export class RegisterDto {
     @IsEmail()
@@ -8,7 +13,7 @@ export class RegisterDto {
 
     @IsString()
     @IsNotEmpty()
-    @MinLength(6, { message: 'Password must be at least 6 characters long' })
+    @MinLength(6, { message: 'La contraseña debe tener al menos 6 caracteres' })
     password: string;
 
     @IsString()
@@ -18,4 +23,16 @@ export class RegisterDto {
     @IsString()
     @IsNotEmpty()
     lastName: string;
+
+    @IsString()
+    @IsNotEmpty()
+    gender: string;
+
+    @IsDateString()
+    @IsNotEmpty()
+    birthDate: Date;
+
+    @IsString()
+    @IsNotEmpty()
+    phone: string;
 }

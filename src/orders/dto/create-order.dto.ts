@@ -3,7 +3,6 @@ import {
     IsArray,
     IsDateString,
     IsNotEmpty,
-    IsOptional,
     IsString,
     ValidateNested,
 } from 'class-validator';
@@ -24,36 +23,36 @@ export class CreateOrderDto {
     destinationAddress: string;
 
     @IsString()
-    @IsOptional()
-    destinationFirstName?: string;
+    @IsNotEmpty()
+    destinationFirstName: string;
 
     @IsString()
-    @IsOptional()
-    destinationLastName?: string;
+    @IsNotEmpty()
+    destinationLastName: string;
 
     @IsString()
-    @IsOptional()
-    destinationEmail?: string;
+    @IsNotEmpty()
+    destinationEmail: string;
 
     @IsString()
-    @IsOptional()
-    destinationPhoneNumber?: string;
+    @IsNotEmpty()
+    destinationPhoneNumber: string;
 
     @IsString()
-    @IsOptional()
-    department?: string;
+    @IsNotEmpty()
+    department: string;
 
     @IsString()
-    @IsOptional()
-    municipality?: string;
+    @IsNotEmpty()
+    municipality: string;
 
     @IsString()
-    @IsOptional()
-    referencePoint?: string;
+    @IsNotEmpty()
+    referencePoint: string;
 
     @IsString()
-    @IsOptional()
-    instructions?: string;
+    @IsNotEmpty()
+    instructions: string;
 
     @IsArray()
     @ArrayMinSize(1)
